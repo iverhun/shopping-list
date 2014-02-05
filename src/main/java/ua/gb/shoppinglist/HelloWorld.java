@@ -1,18 +1,17 @@
 package ua.gb.shoppinglist;
 
-import java.io.IOException;  
-import java.io.PrintWriter;  
-
-import javax.servlet.ServletException;  
-import javax.servlet.http.HttpServlet;  
-import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse;  
-
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@Deprecated
 public class HelloWorld extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -54,13 +53,13 @@ public class HelloWorld extends HttpServlet {
 				"<BODY>\n" +
 				"<H1>Hello, World! </H1>\n" 
 				);
-		out.println("До сортировки / List объектов<br>");
+		out.println("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ / List пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ<br>");
 		for (SortableObject tmp : list_vasja) {
 			out.println(tmp + "<br>");
 		}
 		Collections.sort(list_vasja, SortableObjectComparator.IdAscComparator);
 		
-		out.println("После сортировки / List объектов по Id<br>");
+		out.println("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ / List пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ Id<br>");
 		for (SortableObject tmp : list_vasja) {
 			out.println(tmp + "<br>"); 
 		}		

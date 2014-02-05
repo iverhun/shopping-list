@@ -1,8 +1,8 @@
 package ua.gb.shoppinglist;
 
-import java.util.Comparator;
-
-//public class SortableObject  {
+/**
+ * @deprecated should bedeleted in future
+ */
 public class SortableObject implements Comparable {
 
 	private long id;
@@ -35,7 +35,7 @@ public class SortableObject implements Comparable {
 	}
 
 	public int compareTo(Object o) {
-		//сортировка 
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//        int res = 0;
 		//        SortableObject compared = (SortableObject) o;
 		//        if (compared.id < this.id) {
