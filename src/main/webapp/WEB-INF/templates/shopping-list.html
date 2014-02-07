@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
 <title>Demo - Shopping list</title>
 </head>
 <body>
-    <h1>Shopping list</h1>
-    <p />
-    <div th:unless="${#lists.isEmpty(shoppingItems)}">
-        <div th:each="item : ${shoppingItems}">
-            <span th:text="${item}" />
-        </div>
-    </div>
+	<a href="/shopping-list/newshoppingList" title="підказка"
+		target="_self">newshoppingList</a>
+	<p />
+
+	<h1>Shopping list TEST</h1>
+	<p />
+	<div th:unless="${#lists.isEmpty(shoppingItems)}">
+		<div th:each="item : ${shoppingItems}">
+			<span th:text="${item}"></span>
+		</div>
+	</div>
 </body>
 </html>

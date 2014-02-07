@@ -1,17 +1,19 @@
-package ua.gb.shoppinglist;
+package ua.gb.shoppinglist.service;
 
-/**
- * @deprecated should bedeleted in future
- */
+import org.springframework.stereotype.Service;
+
+///**
+// * @deprecated should bedeleted in future
+// */ POJO
+//@Service
 public class SortableObject implements Comparable {
 
-	private long id;
+	public long id;
 	private String value;
 
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -35,7 +37,7 @@ public class SortableObject implements Comparable {
 	}
 
 	public int compareTo(Object o) {
-        // ����������
+		//сортировка
 		//        int res = 0;
 		//        SortableObject compared = (SortableObject) o;
 		//        if (compared.id < this.id) {

@@ -40,10 +40,6 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>ua.gb.shoppinglist.HelloWorld</servlet-class>
-    </servlet>
 
     <!-- Handles Spring requests -->
     <servlet>
@@ -61,9 +57,6 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
+
 
 </web-app>

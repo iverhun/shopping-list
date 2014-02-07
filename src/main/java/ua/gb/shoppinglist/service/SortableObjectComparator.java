@@ -1,8 +1,8 @@
-package ua.gb.shoppinglist;
+package ua.gb.shoppinglist.service;
 
 import java.util.Comparator;
 
-@Deprecated
+//@Deprecated
 public class SortableObjectComparator {
 
     public static Comparator<SortableObject> IdValueAscComparator = new Comparator<SortableObject>() {
