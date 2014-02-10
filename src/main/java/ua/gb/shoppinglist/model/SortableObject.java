@@ -13,6 +13,15 @@ public class SortableObject {
     @Column
     private String value;
 
+    public SortableObject() {
+        // no-op constructore. Used by Hibernate
+    }
+
+    public SortableObject(long id, String value) {
+        this.id = id;
+        this.value = value;
+    }
+
     public long getId() {
         return id;
     }
