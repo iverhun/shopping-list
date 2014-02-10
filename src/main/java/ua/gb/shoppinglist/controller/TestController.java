@@ -6,12 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ua.gb.shoppinglist.repository.SortableObjectRepository;
 import ua.gb.shoppinglist.service.TestService;
 
 @Controller
 public class TestController {
 
     private TestService testService;
+
+    @Autowired
+    private SortableObjectRepository sortableObjectRepository;
 
     @RequestMapping("/diagonal")
     public String showDiagonal(@RequestParam(value = "width", required = true) Integer rectangleWidth,

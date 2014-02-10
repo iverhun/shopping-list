@@ -3,7 +3,7 @@ package ua.gb.shoppinglist;
 /**
  * @deprecated should bedeleted in future
  */
-public class SortableObject implements Comparable {
+public class SortableObject implements Comparable<SortableObject> {
 
 	private long id;
 	private String value;
@@ -34,7 +34,7 @@ public class SortableObject implements Comparable {
 		this.value = value;
 	}
 
-	public int compareTo(Object o) {
+    public int compareTo(SortableObject o) {
         // ����������
 		//        int res = 0;
 		//        SortableObject compared = (SortableObject) o;
@@ -46,8 +46,8 @@ public class SortableObject implements Comparable {
 		//        }
 		//        return res;
 
-		SortableObject entry = (SortableObject)o;
-		int result = (int)id - (int)entry.id;         
+        SortableObject entry = (SortableObject) o;
+        int result = (int) id - (int) entry.id;
 		if (result != 0) return (int)(result/Math.abs(result));
 
 		result = value.compareTo(entry.value);
