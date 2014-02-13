@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8"/> 
-        <title>Rectangle info</title>
-    </head>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Rectangle info</title>
+</head>
 <body>
-    Rectangle height: <span th:text="${rectangleHeight}"></span>
-    <p/>
-    Rectangle width: <span th:text="${rectangleWidth}"></span>
-    <p/>
-    Rectangle area: <span th:text="${rectangleArea}"></span>
-    <p/>
-    Rectangle diagonal: <span th:text="${rectangleDiagonal}"></span>
-    <p/>
+	<form method="get" action="">
+		Width <input type="number" name="width" value="2" min="1" max="5"  />
+		<p />
+		Height <input type="number" name="height" value="2" />
+		<p />
+		<input type="submit" value="send" />
+	</form>
+	<p />
+	
+	<!-- <form action="#" th:action="@{/seedstartermng}" th:object="${sortableObject}" method="post"> -->
+
+
+	Rectangle height:	<span th:text="${rectangleHeight}"></span>
+	<p />
+	Rectangle width:	<span th:text="${rectangleWidth}"></span>
+	<p />
+	Rectangle area:	<span th:text="${rectangleArea}"></span>
+	<p />
+	Rectangle diagonal:	<span th:text="${rectangleDiagonal}"></span>
+	<p />
 </body>
 </html>

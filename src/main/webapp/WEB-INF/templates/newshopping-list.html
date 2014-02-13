@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/> 
+        <title>Rectangle info</title>
+    </head>
+<body>
+    
+<!--     
+<a href="http://localhost:8080/shopping-list/shoppingList" title="title" target="_self">shoppingList</a>
+	<p />
+ -->    
+<a href="/shopping-list/shoppingList" title="підказка" target="_self">shoppingList</a>
+//!!!!!!!!!!!!!!!!!!!
+<p />
+
+
+    
+    Rectangle height: <span th:text="${newrectangleWidth}"></span>
+    <p/>
+    
+    sortableObject1: <span th:text="${sortableObject1}"></span>
+    <p/>
+    sortableObject2: <span th:text="${sortableObject2}"></span>
+    <p/>
+    sortableObject3: <span th:text="${sortableObject2}"></span>
+    <p/>
+    
+    
+    
+	<div th:unless="${#lists.isEmpty(assashoppingItems1)}">
+		
+		<div th:each="item : ${assashoppingItems1}">
+			Is good!!!		<span th:text="${item}"></span>
+		</div>
+	</div>
+    
+
+	<div th:unless="${#lists.isEmpty(assashoppingItems2)}">
+		
+		<div th:each="item : ${assashoppingItems2}">
+			Is good!!!		<span th:text="${item}"></span>
+		</div>
+	</div>
+
+
+	<div th:unless="${#lists.isEmpty(assashoppingItems3)}">
+		
+		<div th:each="item : ${assashoppingItems3}">
+			Is good!!! ++++	<span th:text="${item}"></span>
+		</div>
+	</div>
+
+   
+    
+</body>
+</html>
