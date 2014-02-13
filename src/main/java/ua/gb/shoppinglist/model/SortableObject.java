@@ -3,8 +3,11 @@ package ua.gb.shoppinglist.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name="sortable_object")
 public class SortableObject {
 
     @Id
