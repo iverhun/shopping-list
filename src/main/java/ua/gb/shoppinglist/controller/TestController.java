@@ -15,11 +15,10 @@ public class TestController {
 
     private TestService testService;
 
-    @Autowired
-    private SortableObjectRepository sortableObjectRepository;
+//    @Autowired
+//    private SortableObjectRepository sortableObjectRepository;
 
     @RequestMapping("/diagonal")
-   
     public String showDiagonal(@RequestParam(value = "width", required = false) Integer rectangleWidth,
             @RequestParam(value = "height", required = false) Integer rectangleHeight, Model model) {
 
@@ -36,7 +35,6 @@ public class TestController {
         model.addAttribute("shoppingItems", testService.getShoppingList());
         return "shopping-list";
     }
-
 
     @Autowired
     public void setTestService(TestService testService) {

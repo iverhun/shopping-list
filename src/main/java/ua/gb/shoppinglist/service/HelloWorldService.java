@@ -15,6 +15,7 @@ public class HelloWorldService {
 	public List<SortableObject> getList_vasja() {
 		return list_vasja;
 	}
+	
 	public void setList_vasja(List<SortableObject> list_vasja) {
 		this.list_vasja = list_vasja;
 	}
