@@ -18,50 +18,51 @@ import ua.gb.shoppinglist.util.SortableObjectComparator;
 // @Deprecated
 @Controller
 public class HelloWorldController {
-	@Autowired
-	private SortableObjectRepository sortableObjectRepository;
 
-	@RequestMapping("/newshoppingList")
-	public String serviceDemo(Model model) {
+    @Autowired
+    private SortableObjectRepository sortableObjectRepository;
 
-		System.out.println("Refresh /newshoppingList");	
+    @RequestMapping("/newshoppingList")
+    public String serviceDemo(Model model) {
 
-		model.addAttribute("newrectangleWidth", 20);
+        System.out.println("Refresh /newshoppingList");
 
-		SortableObject obj = new SortableObject(5 , "Value c");
-		model.addAttribute("sortableObject1", obj.toString());
-		model.addAttribute("sortableObject2", obj);
+        model.addAttribute("newrectangleWidth", 20);
 
-		List<SortableObject> list_vasja = new ArrayList<SortableObject>(); 	
-		list_vasja.add(new SortableObject(5 , "Value c"));
-		SortableObject obj1 = new SortableObject(55 , "Value bb");
-		list_vasja.add(obj1);
-		model.addAttribute("sortableObject3", list_vasja.get(1).toString());
-		model.addAttribute("assashoppingItems2", list_vasja);
+        SortableObject obj = new SortableObject(5, "Value c");
+        model.addAttribute("sortableObject1", obj.toString());
+        model.addAttribute("sortableObject2", obj);
 
-		List<String> listStringVasja = Arrays.asList("111", "222", "333");		 
-		model.addAttribute("assashoppingItems1", listStringVasja);		 
+        List<SortableObject> list_vasja = new ArrayList<SortableObject>();
+        list_vasja.add(new SortableObject(5, "Value c"));
+        SortableObject obj1 = new SortableObject(55, "Value bb");
+        list_vasja.add(obj1);
+        model.addAttribute("sortableObject3", list_vasja.get(1).toString());
+        model.addAttribute("assashoppingItems2", list_vasja);
 
-		HelloWorldService helloWorldService = new HelloWorldService();
-		helloWorldService.list_vasja.add(new SortableObject(94444 , "Value 14555555555"));
-		helloWorldService.list_vasja.add(new SortableObject(944 , "Value 14555555555"));
-		helloWorldService.list_vasja.add(new SortableObject(44 , "Value 14555555555"));
-		helloWorldService.list_vasja.add(new SortableObject(9444 , "Value 14555555555"));		
-		Collections.sort(helloWorldService.list_vasja, SortableObjectComparator.IdAscComparator);
-		model.addAttribute("assashoppingItems3", helloWorldService.list_vasja);
+        List<String> listStringVasja = Arrays.asList("111", "222", "333");
+        model.addAttribute("assashoppingItems1", listStringVasja);
 
-	    String testValue = "Value bbbbbbbbb";
-	    SortableObject newSortableObject = sortableObjectRepository.pushSortableObject(new SortableObject(testValue));	
-	    System.out.println(newSortableObject);
-//		model.addAttribute("assashoppingItems4", sortableObjectRepository.getAllSortableObjectValues() );
-		model.addAttribute("assashoppingItems4", sortableObjectRepository.getAllSortableObject());
+        HelloWorldService helloWorldService = new HelloWorldService();
+        helloWorldService.list_vasja.add(new SortableObject(94444, "Value 14555555555"));
+        helloWorldService.list_vasja.add(new SortableObject(944, "Value 14555555555"));
+        helloWorldService.list_vasja.add(new SortableObject(44, "Value 14555555555"));
+        helloWorldService.list_vasja.add(new SortableObject(9444, "Value 14555555555"));
+        Collections.sort(helloWorldService.list_vasja, SortableObjectComparator.IdAscComparator);
+        model.addAttribute("assashoppingItems3", helloWorldService.list_vasja);
 
-		return "newshopping-list";
-	}	
+        String testValue = "Value bbbbbbbbb";
+        SortableObject newSortableObject = sortableObjectRepository.save(new SortableObject(testValue));
+        System.out.println(newSortableObject);
+        // model.addAttribute("assashoppingItems4", sortableObjectRepository.getAllSortableObjectValues() );
+        model.addAttribute("assashoppingItems4", sortableObjectRepository.getAllSortableObjects());
 
-	@RequestMapping("/thDemo")
-	public String thDemoo(Model model) {
+        return "newshopping-list";
+    }
 
-		return "home";
-	}		
+    @RequestMapping("/thDemo")
+    public String thDemoo(Model model) {
+
+        return "home";
+    }
 }

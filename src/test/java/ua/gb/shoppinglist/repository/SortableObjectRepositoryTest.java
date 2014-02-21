@@ -1,64 +1,46 @@
 package ua.gb.shoppinglist.repository;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import ua.gb.shoppinglist.model.SortableObject;
 
 @ContextConfiguration(locations = "classpath:/META-INF/spring/applicationContext-test.xml")
+@TransactionConfiguration(defaultRollback = true)
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SortableObjectRepositoryTest {
+
+    @PersistenceContext
+    protected EntityManager entityManager;
 
 	@Autowired
 	private SortableObjectRepository sortableObjectRepository;
 
 	@Test
-	public void testGetById() {
-		SortableObject sortableObject = sortableObjectRepository.getById(100L);
-		SortableObject sortableObject1 = sortableObjectRepository.getById(100L);
-		System.out.println(sortableObject);
-		System.out.println(sortableObject1);
-		Assert.assertEquals("Сир", sortableObject.getValue());
-	}
-
-	@Test
-//	@Ignore
-	public void testGetAllSortableObject() {
-		System.out.println(sortableObjectRepository.getAllSortableObject());	
-		System.out.println("List");
-		for (SortableObject tmp : sortableObjectRepository.getAllSortableObject()) {
-			System.out.println(tmp);
-		}
-	}
-
-	@Test
-	public void test() {
-		System.out.println("Test out");
-	}    
-	
-//	@Test
-//	public void testpushToDB() {
-//		sortableObjectRepository.pushSortableObject();
-//		SortableObject sortableObject = sortableObjectRepository.getById(555555L);
-//		System.out.println(sortableObject);
-//		Assert.assertEquals("Value bbbbbbbbb", sortableObject.getValue());
-//	}
-//	
-//	
-	@Test
-    public void testPushToDB() {
-        String testValue = "Value bbbbbbbbb";
-        SortableObject newSortableObject = sortableObjectRepository.pushSortableObject(new SortableObject(testValue));
-        SortableObject sortableObjectFromDb = sortableObjectRepository.getById(newSortableObject.getId());
-
-        System.out.println(sortableObjectFromDb);
+    public void testSaveAndGetById() {
+        String testValue = "Test By ID";
+        SortableObject sortableObject = sortableObjectRepository.save(new SortableObject(testValue));
+        SortableObject sortableObjectFromDb = sortableObjectRepository.getById(sortableObject.getId());
         Assert.assertEquals(testValue, sortableObjectFromDb.getValue());
-    }
+	}
+
+	@Test
+	public void testGetAllSortableObject() {
+        sortableObjectRepository.save(new SortableObject("Test By ID"));
+        entityManager.flush();
+        List<SortableObject> sortableObjects = sortableObjectRepository.getAllSortableObjects();
+        Assert.assertEquals(1, sortableObjects.size());
+	}
 }

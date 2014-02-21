@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<title>Lis SO</title>
+</head>
+<body>
+    <table border="1" cellpadding="5" cellspacing="1">
+        <td>
+            <span>ID</span>
+        </td>
+        <td>
+            <span>VALUE</span>
+        </td>
+
+        <div th:unless="${#lists.isEmpty(sortableObjects)}">
+            <div th:each="item : ${sortableObjects}">
+                <tr>
+                    <td>
+                        <span th:text="${item.id}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${item.value}"></span>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </table>
+</body>
+</html>
